@@ -1,0 +1,36 @@
+function ARmodel
+%	ARMODEL Starts the Articulatory model
+%		This function essenitally defines the menu items
+%		and calls up the menu program.
+
+% Copyright (c) 1999 Satrajit S. Ghosh (satra@bu.edu)
+% Department of Cognitive and Neural Systems, Boston University
+
+% $Revision: 1.00$ $Date:Fri Oct  1 17:02:05 EDT 1999$
+
+% Bug fixes
+
+% Modifications
+
+obj = findobj('Tag','Vtcalcs');
+data = get(obj,'Userdata');
+
+obj = findobj('Tag','AM');
+set(obj,'visible', 'on');
+
+menustr = {...
+      'Calculate' 'Synthesize' 'Keep (save)' ...
+      'Vowel' ...
+      'nasal' ...
+      'Close' ...
+      'jaw' ...
+      'tongue' ...
+      'shape' ...
+      'apex' ...
+      'lip_ht' ...
+      'lip_pr' ...
+      'larynx'};
+
+h = menulam(menustr,'arcb');
+arcb(0);
+

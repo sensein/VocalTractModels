@@ -1,0 +1,125 @@
+\chapter{Installation and User guide}
+
+\section{Downloading the program}
+The program may be downloaded from the following URLs:
+\begin{itemize}
+\item \href{http://cns-web.bu.edu/~satra/pub/vtcalcs.tgz}
+{http://cns-web.bu.edu/~satra/pub/vtcalcs.tgz - for Unix}
+\item \href{http://cns-web.bu.edu/~satra/pub/vtcalcs.zip}
+{http://cns-web.bu.edu/~satra/pub/vtcalcs.zip - for MS Windows}
+\end{itemize}
+
+\section{Installation}
+The program can be installed in any directory. However the
+directory structure has to be maintained when unpacking.
+
+\begin{enumerate}
+\item Choose a directory for installation.
+\item Copy the archived file into the directory.
+\item Unzip the file while \em maintaining the directory structure \em. On
+UNIX systems one may use the command: \begin{center} gunzip -c
+vtcalcs.tgz $|$ tar xf \end{center}  On Microsoft Windows systems
+either use an unzip program like Winzip or use pkunzip with the
+command:
+\begin{center} pkunzip -d vtcalcs.zip
+\end{center} Most linux systems support the following command
+directly:
+\begin{center} tar zxf vtcalcs.tgz \end{center}
+\item A directory called vtcalcs will be created with three
+subdirectories: data, doc, and src. `data' contains some necessary
+data files for running the program. `doc' contains this document.
+`src' contains the source code for compiling the mex functions.
+\item If you are installing it on a system for which mex files
+have not been provided you need to create the mex files. This is
+described in the next section.
+\end{enumerate}
+
+\section{Creating the mex files}
+Creating the mex files requires that you have the Matlab compiler
+installed properly. For installing the Matlab compiler please refer to
+the documentation provided by Mathworks. On a MS Windows system this
+typcially requires both the Matlab compiler as well as an additonal
+compiler such as Microsoft Visual C++. Matlab v5.3 works fine however
+v5.2 and below is known to have problems on newer Linux systems and
+can result in segmentation violations. The following URL should help
+solve the problem:
+\begin{center}
+\href{http://www.mathworks.com/support/solutions/v5/11129.shtml}
+{http://www.mathworks.com/support/solutions/v5/11129.shtml}
+\end{center}
+
+\begin{enumerate}
+\item Start Matlab
+\item Change to the source directory.
+\item At the Matlab prompt type Makefile('unix') or
+Makefile('windows').The function is case sensitive. If the
+compiler has been set up properly, the call should have created
+mex files for you specific platform.
+\item Copy or move the mex files from the `src' directory to the vtcalcs
+directory. The files will have different extensions on different
+platforms. Some common platforms and extensions are listed below.
+Please refer to the compiler documentation for any other
+platforms.\\
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+   Platform    & Extension \\
+\hline
+ Windows 9x/NT &   .dll    \\
+\hline
+     Linux     &  .mexlx   \\
+\hline
+  Solaris  &   .mex4   \\
+\hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\section{Using the program}
+To start the program open Matlab in the same directory where the
+m-file vtcalcs.m is. On Unix this can be accomplished by starting
+Matlab in the directory containing the file. On Windows one can
+change the directory from within Matlab by using the `cd' command.
+Once you are in the directory start the program by typing vtcalcs
+at the Matlab prompt. This launches the user interface (UI) for
+the program.
+
+The UI has three menu options relevant to running the program.
+These are:
+\begin{itemize}
+\item VT Calculation
+\item Tract configuration
+\item Physical constants
+\end{itemize}
+
+\subsection{VT Calculation from Models}
+The current version provides 5 different methods of calculating
+the transfer function. When selected it provides the user with the
+5 options. The sixth option is currently not available and has
+been disabled. Choosing any of the other options opens a dialog
+box with rather intuitive controls. Most of the pushbuttons with
+numeric values on them popup dialogs which allow those values to
+be changed. Some push buttons toggle states and some perform a
+particular action (eg. synthesize). The sliders change values
+continuously. The allowable range of the values are provided in
+Appendix A.
+
+\subsection{Changing Tract Configuration}
+When this menu option is selected a dialog box with four
+pushbuttons pop up. Clicking on any of the buttons toggles its
+state and the current state is displayed on the button.
+
+\subsection{Changing Physical Constants}
+When this menu option is selected a dialog box with five
+pushbuttons pop up. Clicking on any of the buttons opens a dialog
+box where one can enter a new value. If no value is entered, the
+current value is retained. This dialog also keeps the entered
+value within range of possibly allowed values.
+
+\section{Registered Trademarks}
+\begin{itemize}
+\item Matlab is a registered trademark of Mathworks Inc.
+\item Microsoft Visual C++, Microsoft Windows, MS Windows, Windows 9x/NT are registered trademarks
+of Microsoft corporation.
+\item Solaris is a registered trademark of Sun Microsystems.
+\end{itemize}

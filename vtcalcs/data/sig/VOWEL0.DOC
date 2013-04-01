@@ -1,0 +1,47 @@
+c:\maeda\sig\\VOWEL0.DOC
+
+Vocal tract configuration
+	Radiation load = ON
+	Walls          = YIELDING
+	Nasale tract   = OFF
+	Glottis        = CLOSE
+
+Physical constants
+	Air density     = 0.001140
+	Sound velocity  = 35000.000000
+	Wall mass       = 1.500000
+	Wall resistance = 1600.000000
+	Wall compliance = 300000.000000
+
+Model and parameters
+	model_type = ART_MODEL
+	Articulatory parameters
+	-1.500000	2.000000	0.000000	-0.500000	0.500000	-0.500000	0.000000
+
+Area function: section area (cm2) and length (cm)
+	Number of sections = 17
+	  0	2.669610	0.981416
+	  1	1.383048	0.981416
+	  2	2.153332	0.981416
+	  3	2.249616	0.981416
+	  4	1.666811	0.981416
+	  5	1.609933	0.981416
+	  6	2.517612	0.981416
+	  7	3.391625	0.981416
+	  8	3.156517	0.981416
+	  9	2.225192	0.981416
+	 10	3.886023	0.981416
+	 11	6.804405	0.981416
+	 12	8.464406	0.981416
+	 13	8.341640	0.981416
+	 14	7.992102	0.981416
+	 15	6.123682	0.981416
+	 16	3.616075	0.981416
+
+Formant frequencies (Hz), bandwidth (Hz) and amplitudes (dB)
+	Number of detected formants = 5
+	  1	  658.0	   34.1	   29.7
+	  2	 1255.5	   39.3	   28.2
+	  3	 2279.5	   35.2	   22.5
+	  4	 3575.5	   83.2	   17.1
+	  5	 4031.5	  117.5	   14.8
