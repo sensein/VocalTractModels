@@ -21,7 +21,7 @@ Bugs:
 #include	<stdio.h>
 #include	<math.h>
 #include	<stdlib.h>
-#include	<malloc.h>
+//#include	<malloc.h>
 #include	"matrix.h"
 
 #include	"mex.h"
