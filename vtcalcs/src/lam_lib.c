@@ -256,7 +256,8 @@ void	lam ( float *pa )		/* a set of JAW+TNG+LIP+LRX */
 	ivt[  np].x = evt[np].x;
 	ivt[  np].y = evt[np].y - v_lip[2];	/* lower lip */
 
-	evt[++np].x = evt[np-1].x - v_lip[1];
+	++np;
+	evt[  np].x = evt[np-1].x - v_lip[1];
 	evt[  np].y = evt[np-1].y;
 	ivt[  np].x = evt[np].x;
 	ivt[  np].y = ivt[np-1].y;
