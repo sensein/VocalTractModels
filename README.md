@@ -29,7 +29,7 @@ See LICENSE file for details
 
 # Publications
 
-  @incollection{
+@incollection{
   year={1990},
   isbn={978-94-010-7414-8},
   booktitle={Speech Production and Speech Modelling},
@@ -38,11 +38,10 @@ See LICENSE file for details
   editor={Hardcastle, WilliamJ. and Marchal, Alain},
   doi={10.1007/978-94-009-2037-8_6},
   title={Compensatory Articulation During Speech: Evidence from the Analysis and Synthesis of Vocal-Tract Shapes Using an Articulatory Model},
-  url={http://dx.doi.org/10.1007/978-94-009-2037-8_6},
+  url={https://doi.org/10.1007/978-94-009-2037-8_6 },
   publisher={Springer Netherlands},
   author={Maeda, Shinji},
   pages={131-149},
   language={English}
   }
-
 
