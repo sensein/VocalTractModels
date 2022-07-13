@@ -47,14 +47,14 @@ case 0,
    end;
    as2fcb(1);
 case 1,
-   [Af,Tf,F,B,A] = AS2F(...
+   [Af,Tfm,Tff,F,B,A] = AS2F(...
       gettc(data.TC),...
       getpc(data.PC),...
       data.AS2Fpar.af,...
       [data.AS2Fpar.nts data.AS2Fpar.anc]);
    plot_af(Af);
    plot_af(data.AS2Fpar.af,1);
-   plot_tf(Tf);
+   plot_tf(Tff,Tfm);
    plot_FBA(F,B,A);
    data.F = [];data.B = [];data.A=[];
    data.F = F;data.B = B;data.A=A;

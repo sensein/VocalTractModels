@@ -1,4 +1,4 @@
-function [af,tf,f,b,a] = AS2F(TC,PC,AF,misc)
+function [af,tfm,tff,f,b,a] = AS2F(TC,PC,AF,misc)
 %	AS2F This function computes the transfer function from
 %		  a given set of area functions.
 %		  (Implemented as a mex function)
@@ -20,13 +20,14 @@ function [af,tf,f,b,a] = AS2F(TC,PC,AF,misc)
 %
 %		Output Parameters:
 %		af	:	area functions
-%		tf	:	transfer function
+%		tfm	:	transfer function magnitude
+%       tff :   transfer function frequency
 %		f	:	formants
 %		b	:	bandwidths
 %		a	:	amplitudes
 %
 %		Usage:
-%		[Af,Tf,F,B,A] = AS2F(...
+%		[Af,Tfm,Tff,F,B,A] = AS2F(...
 %			gettc(data.TC),...
 %			getpc(data.PC),...
 %			data.AS2Fpar.af,...

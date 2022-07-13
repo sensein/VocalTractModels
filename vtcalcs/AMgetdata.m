@@ -1,4 +1,4 @@
-function [af,tf,f,b,a,p1,p2] = AMgetdata(TC,PC,AMpar)
+function [af,tfm,tff,f,b,a,p1,p2] = AMgetdata(TC,PC,AMpar)
 %	AMGETDATA This function computes the LAM transfer function
 %		(Implemented as a mex function)
 %
@@ -17,7 +17,8 @@ function [af,tf,f,b,a,p1,p2] = AMgetdata(TC,PC,AMpar)
 %
 %		Output Parameters:
 %		af	:	area functions
-%		tf	:	transfer function
+%		tfm	:	transfer function magnitude
+%       tff :   transfer function frequency
 %		f	:	formants
 %		b	:	bandwidths
 %		a	:	amplitudes
@@ -25,7 +26,7 @@ function [af,tf,f,b,a,p1,p2] = AMgetdata(TC,PC,AMpar)
 %		p2 :	plotting parameters for plot_lam
 %
 %		Usage:
-%		[Af,Tf,F,B,A,P1,P2] = AMgetdata(...
+%		[Af,Tfm,Tff,F,B,A,P1,P2] = AMgetdata(...
 %		      gettc(data.TC),...
 %		      getpc(data.PC),...
 %		      [data.AMpar.ampar,data.AMpar.anc]);

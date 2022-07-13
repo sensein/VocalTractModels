@@ -27,7 +27,7 @@ AVval(:,2) = 525+25*y;
 
 % Cycle through each input
 for i=1:size(X,2),
-    [Ft,Bt,At,Af{i},Tf{i},P1{i},P2t] = doAM(X(:,i));
+    [Ft,Bt,At,Af{i},Tfm{i},Tff{i},P1{i},P2t] = doAM(X(:,i));
 
     % Draw the figure
     diva_drawman(P1{i},P2t,X(1,i),AV(i),AVval);

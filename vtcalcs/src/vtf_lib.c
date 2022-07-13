@@ -823,7 +823,8 @@ void	calplot_tf_FBA (
 	float	*bw,		/* B1, B2, .... frequency in Hz */
 	float	*amp,		/* A1, A2, .... amplitude in dB */
 	int	*nfrms,		/* number of F-peaks detected   */
-	float *tf,   /* transfer function output */
+	float *tfmag,   /* transfer function magnitude */
+	float *tffreq, /* transfer function freq */
 	int *ncount)	/* no of points */
 {
 	float	df, dfmin = .5f, dfmax = 40.f;			/* in Hz */
@@ -865,7 +866,8 @@ void	calplot_tf_FBA (
 		mag = (float)(20.*log10( max(vtf_sim(freq), 0.01) ));
 		if( i == 0 )
 		{
-			tf[count] = mag;
+			tfmag[count] = mag;
+			tffreq[count] = freq;
 			count++;
 #ifdef PLOTME
 			mov( datolo_x(vp.n, freq/1000.), datolo_y(vp.n, mag) );
@@ -874,7 +876,8 @@ void	calplot_tf_FBA (
 		}
 		if( i == 1 )
 		{
-			tf[count] = mag;
+			tfmag[count] = mag;
+			tffreq[count] = freq;
 			count++;
 #ifdef PLOTME
 			drw( datolo_x(vp.n, freq/1000.), datolo_y(vp.n, mag) );
@@ -884,7 +887,8 @@ void	calplot_tf_FBA (
 		}
 		if( i > 1 )
 		{ 
-			tf[count] = mag;
+			tfmag[count] = mag;
+			tffreq[count] = freq;
 			count++;
 #ifdef PLOTME
 			drw( datolo_x(vp.n, freq/1000.), datolo_y(vp.n, mag) );

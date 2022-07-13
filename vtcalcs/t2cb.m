@@ -39,14 +39,14 @@ case 0,
    end;
    t2cb(1);
 case 1,
-   [Af,Tf,F,B,A] = T2getdata(...
+   [Af,Tfm,Tff,F,B,A] = T2getdata(...
       gettc(data.TC),...
       getpc(data.PC),...
       [data.T2mpar.A1,data.T2mpar.x1,...
          data.T2mpar.A2,data.T2mpar.x2,data.T2mpar.anc]);
    plot_af(Af);
    plot_FBA(F,B,A);
-   plot_tf(Tf);
+   plot_tf(Tff,Tfm);
    data.F = [];data.B = [];data.A=[];
    data.F = F;data.B = B;data.A=A;
    set(obj1,'Userdata',data);

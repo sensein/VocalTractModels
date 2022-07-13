@@ -17,6 +17,8 @@ the tube and the Formants (Fmt), their bandwidths (Bw)
 and their Amplitudes (Aw).
 
 Modifications:
+Transfer function's x-axis data, freq (tff) is added as an output.
+Transfer functoin's y-axis data's name (tf) changed to tfm.
 
 Bugs:
 
@@ -41,13 +43,15 @@ static double	*pPCcfg;
 static double	*pP3cfg;
 
 static mxArray	*oAf = 0;
-static mxArray	*oTf = 0;
+static mxArray	*oTfm = 0;
+static mxArray	*oTff = 0;
 static mxArray	*oFmt = 0;
 static mxArray	*oBw = 0;
 static mxArray	*oAmp = 0;
 
 static double	*pAf;
-static double	*pTf;
+static double	*pTfm;
+static double	*pTff;
 static double	*pFmt;
 static double	*pBw;
 static double	*pAmp;
@@ -61,7 +65,7 @@ static int size = 0;
 static  int CheckArguments(int nlhs, mxArray *plhs[], 
 				int nrhs, const mxArray *prhs[])
 {     
-	if (nrhs<3 || nrhs > 3 || nlhs < 5 || nlhs > 5){
+	if (nrhs<3 || nrhs > 3 || nlhs < 6 || nlhs > 6){
 		printf("Incorrect calling syntax:\n [AreaF,TransF,Fmts,BW,Ampl] = ");
 		printf("P3getdata(tractcfg,phycons,p3cfg)\n");
 		printf("nlhs is %d, nrhs is %d.\n", nlhs, nrhs);
@@ -182,16 +186,19 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 		pAf[2*nph] = afvt[nph].A;
 	}
 	
-	calplot_tf_FBA(nfrmmax, frm, bw, amp, &nfrms, tfunc, &ntf);
+	calplot_tf_FBA(nfrmmax, frm, bw, amp, &nfrms, tfmag, tffreq, &ntf);
 
 	//printf("Finished calculations.\n");
 
 
-	oTf = mxCreateDoubleMatrix(ntf, 1, mxREAL);
-	pTf = mxGetPr(oTf);
+	oTfm = mxCreateDoubleMatrix(ntf, 1, mxREAL);
+	pTfm = mxGetPr(oTfm);
+	oTff = mxCreateDoubleMatrix(ntf, 1, mxREAL);
+	pTff = mxGetPr(oTff);
 	for(i=0;i<ntf;i++)
 	{
-		pTf[i] = tfunc[i];
+		pTfm[i] = tfmag[i];
+		pTff[i] = tffreq[i];
 	}
 
 	oFmt = mxCreateDoubleMatrix(nfrms, 1, mxREAL);
@@ -200,7 +207,6 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	pBw = mxGetPr(oBw);
 	oAmp = mxCreateDoubleMatrix(nfrms, 1, mxREAL);
 	pAmp = mxGetPr(oAmp);
-
 	for(i=0;i<nfrms;i++)
 	{
 		pFmt[i] = frm[i];
@@ -210,10 +216,11 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 
 	/* Assign output pointers */
 	plhs[0] = oAf; 
-	plhs[1] = oTf; 
-	plhs[2] = oFmt; 
-	plhs[3] = oBw; 
-	plhs[4] = oAmp; 
+	plhs[1] = oTfm;
+	plhs[2] = oTff;
+	plhs[3] = oFmt; 
+	plhs[4] = oBw; 
+	plhs[5] = oAmp; 
 
 	// do cleanup
 	//free( rad_re );

@@ -66,13 +66,13 @@ case 0,
     end;
     arcb(1);
 case 1,	%	Calculate 
-    [Af,Tf,F,B,A,P1,P2] = AMgetdata(...
+    [Af,Tfm,Tff,F,B,A,P1,P2] = AMgetdata(...
         gettc(data.TC),...
         getpc(data.PC),...
         [data.AMpar.ampar,data.AMpar.anc]);
     plot_af(Af);
     plot_FBA(F,B,A);
-    plot_tf(Tf);
+    plot_tf(Tff,Tfm);
     vt = d_opvt;
     obj = findobj('Tag','AM');
     axes(obj);

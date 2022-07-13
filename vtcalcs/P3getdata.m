@@ -1,4 +1,4 @@
-function [af,tf,f,b,a] = P3getdata(TC,PC,P3par)
+function [af,tfm,tff,f,b,a] = P3getdata(TC,PC,P3par)
 %	P3GETDATA This function computes the 3 parameter transfer 
 %				 function (Implemented as a mex function)
 %
@@ -15,13 +15,14 @@ function [af,tf,f,b,a] = P3getdata(TC,PC,P3par)
 %
 %		Output Parameters:
 %		af	:	area functions
-%		tf	:	transfer function
+%		tfm	:	transfer function magnitude
+%       tff :   transfer function frequency
 %		f	:	formants
 %		b	:	bandwidths
 %		a	:	amplitudes
 %
 %		Usage:
-%		[Af,Tf,F,B,A] = P3getdata(...
+%		[Af,Tfm,Tff,F,B,A] = P3getdata(...
 %				gettc(data.TC),...
 %				getpc(data.PC),...
 %				[data.P3mpar.At, data.P3mpar.Xt,...

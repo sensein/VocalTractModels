@@ -37,14 +37,14 @@ case 0,
    end;
    p3cb(1);
 case 1,
-   [Af,Tf,F,B,A] = P3getdata(...
+   [Af,Tfm,Tff,F,B,A] = P3getdata(...
       gettc(data.TC),...
       getpc(data.PC),...
       [data.P3mpar.At, data.P3mpar.Xt,...
          data.P3mpar.Al, data.P3mpar.anc]);
    plot_af(Af);
    plot_FBA(F,B,A);
-   plot_tf(Tf);
+   plot_tf(Tff,Tfm);
    data.F = [];data.B = [];data.A=[];
    data.F = F;data.B = B;data.A=A;
    set(obj1,'Userdata',data);
