@@ -1,4 +1,4 @@
-function [af,tf,f,b,a] = UTgetdata(TC,PC,UTpar)
+function [af,tfm,tff,f,b,a] = UTgetdata(TC,PC,UTpar)
 %	UTGETDATA This function computes the uniform tube transfer 
 %				 function (Implemented as a mex function)
 %
@@ -15,13 +15,14 @@ function [af,tf,f,b,a] = UTgetdata(TC,PC,UTpar)
 %
 %		Output Parameters:
 %		af	:	area functions
-%		tf	:	transfer function
+%		tfm	:	transfer function magnitude
+%       tff :   transfer function frequency
 %		f	:	formants
 %		b	:	bandwidths
 %		a	:	amplitudes
 %
 %		Usage:
-%		[Af,Tf,F,B,A] = UTgetdata(...
+%		[Af,Tfm,Tff,F,B,A] = UTgetdata(...
 %	      gettc(data.TC),...
 %	      getpc(data.PC),...
 %			[data.UTmpar.area,data.UTmpar.length,...

@@ -18,6 +18,8 @@ and their Amplitudes (Aw) and the data required for
 plotting the AM model.
 
 Modifications:
+Transfer function's x-axis data, freq (tff) is added as an output.
+Transfer functoin's y-axis data's name (tf) changed to tfm.
 
 Bugs:
 
@@ -42,7 +44,8 @@ static double	*pPCcfg;
 static double	*pAMcfg;
 
 static mxArray	*oAf = 0;
-static mxArray	*oTf = 0;
+static mxArray	*oTfm = 0;
+static mxArray	*oTff = 0;
 static mxArray	*oFmt = 0;
 static mxArray	*oBw = 0;
 static mxArray	*oAmp = 0;
@@ -50,7 +53,8 @@ static mxArray	*oPdat1 = 0;
 static mxArray	*oPdat2 = 0;
 
 static double	*pAf;
-static double	*pTf;
+static double	*pTfm;
+static double	*pTff;
 static double	*pFmt;
 static double	*pBw;
 static double	*pAmp;
@@ -71,7 +75,7 @@ extern float	lip_w, lip_h;			/* lip-tube width and height      */
 static  int CheckArguments(int nlhs, mxArray *plhs[], 
 				int nrhs, const mxArray *prhs[])
 {     
-	if (nrhs<3 || nrhs > 3 || nlhs < 7 || nlhs > 7){
+	if (nrhs<3 || nrhs > 3 || nlhs < 8 || nlhs > 8){
 		printf("Incorrect calling syntax:\n [AreaF,TransF,Fmts,BW,Ampl,pdat1,pdat2] = ");
 		printf("AMgetdata(tractcfg,phycons,p3cfg)\n");
 		printf("nlhs is %d, nrhs is %d.\n", nlhs, nrhs);
@@ -190,7 +194,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 		pAf[2*nph+1] = afvt[nph].x;
 	}
 
-	calplot_tf_FBA(nfrmmax, frm, bw, amp, &nfrms, tfunc, &ntf);
+	calplot_tf_FBA(nfrmmax, frm, bw, amp, &nfrms, tfmag, tffreq, &ntf);
 
 	//printf("Finished calculations.\n");
 
@@ -209,11 +213,14 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	pPdat2[1] = lip_h;
 
 
-	oTf = mxCreateDoubleMatrix(ntf, 1, mxREAL);
-	pTf = mxGetPr(oTf);
+	oTfm = mxCreateDoubleMatrix(ntf, 1, mxREAL);
+	pTfm = mxGetPr(oTfm);
+	oTff = mxCreateDoubleMatrix(ntf, 1, mxREAL);
+	pTff = mxGetPr(oTff);
 	for(i=0;i<ntf;i++)
 	{
-		pTf[i] = tfunc[i];
+		pTfm[i] = tfmag[i];
+		pTff[i] = tffreq[i];
 	}
 
 	oFmt = mxCreateDoubleMatrix(nfrms, 1, mxREAL);
@@ -222,7 +229,6 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 	pBw = mxGetPr(oBw);
 	oAmp = mxCreateDoubleMatrix(nfrms, 1, mxREAL);
 	pAmp = mxGetPr(oAmp);
-
 	for(i=0;i<nfrms;i++)
 	{
 		pFmt[i] = frm[i];
@@ -232,12 +238,13 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 
 	/* Assign output pointers */
 	plhs[0] = oAf; 
-	plhs[1] = oTf; 
-	plhs[2] = oFmt; 
-	plhs[3] = oBw; 
-	plhs[4] = oAmp; 
-	plhs[5] = oPdat1; 
-	plhs[6] = oPdat2; 
+	plhs[1] = oTfm;
+	plhs[2] = oTff;
+	plhs[3] = oFmt; 
+	plhs[4] = oBw;
+	plhs[5] = oAmp; 
+	plhs[6] = oPdat1; 
+	plhs[7] = oPdat2;
 
 	// do cleanup
 	//free( rad_re );

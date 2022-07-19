@@ -1,4 +1,4 @@
-function [af,tf,f,b,a] = T2getdata(TC,PC,T2par)
+function [af,tfm,tff,f,b,a] = T2getdata(TC,PC,T2par)
 %	T2GETDATA This function computes the two tube transfer 
 %				 function (Implemented as a mex function)
 %
@@ -15,13 +15,14 @@ function [af,tf,f,b,a] = T2getdata(TC,PC,T2par)
 %
 %		Output Parameters:
 %		af	:	area functions
-%		tf	:	transfer function
+%		tfm	:	transfer function magnitude
+%       tff :   transfer function frequency
 %		f	:	formants
 %		b	:	bandwidths
 %		a	:	amplitudes
 %
 %		Usage:
-%		[Af,Tf,F,B,A] = T2getdata(...
+%		[Af,Tfm,Tff,F,B,A] = T2getdata(...
 %			gettc(data.TC),...
 %			getpc(data.PC),...
 %			[data.T2mpar.A1,data.T2mpar.x1,...

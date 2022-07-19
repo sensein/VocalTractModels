@@ -1,4 +1,4 @@
-function [F,B,A,Af,Tf,P1,P2] = doAM(th)
+function [F,B,A,Af,Tfm,Tff,P1,P2] = doAM(th)
 % DOAM  A wrapper around AMgetdata to provide external parameters
 %   This function serves to add parameters from the file vtsimul
 %   and also converts the data.TC (tract constants) and data.PC 
@@ -19,7 +19,7 @@ vtsimul;
 % reshape to ensure correct input form
 th = th(:)';
 data.AMpar.ampar = th;
-[Af,Tf,F,B,A,P1,P2] = AMgetdata(...
+[Af,Tfm,Tff,F,B,A,P1,P2] = AMgetdata(...
     gettc(data.TC),...
     getpc(data.PC),...
     [data.AMpar.ampar,data.AMpar.anc]);
