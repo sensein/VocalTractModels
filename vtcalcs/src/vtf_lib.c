@@ -827,7 +827,7 @@ void	calplot_tf_FBA (
 	float *tffreq, /* transfer function freq */
 	int *ncount)	/* no of points */
 {
-	float	df, dfmin = .5f, dfmax = 40.f;			/* in Hz */
+	float	df, dfmin = .5f, dfmax = 1.f;			/* in Hz */
 	float	freq, freq2, mag, mag1, mag2, mag3;
 	float	fmin = 0.f, ftic = 0.2f, fmax = 5.f;		/* in kHz */
 	int	i, j,count = 0;
@@ -900,17 +900,17 @@ void	calplot_tf_FBA (
 				frm[j]   = freq2;		/* Fn in Hz    */
 				amp[j++] = mag2;		/* An in dB    */
 			}
-			/* adapt frequency step size */	     
-			if ( fabs(mag3 - mag2) > 1.f )
-			{
-				df = df - 8;
-				if( df <= dfmin ) df = dfmin;
-			}
-			else
-			{ 
-				df = df + 8;
-				if( df >= dfmax ) df = dfmax;
-			}
+			///* adapt frequency step size */	     
+			//if ( fabs(mag3 - mag2) > 1.f )
+			//{
+			//	df = df - 8;
+			//	if( df <= dfmin ) df = dfmin;
+			//}
+			//else
+			//{ 
+			//	df = df + 8;
+			//	if( df >= dfmax ) df = dfmax;
+			//}
 			mag1 = mag2;
 			mag2 = mag3;
 			freq2 = freq;
