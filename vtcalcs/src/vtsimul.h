@@ -62,8 +62,8 @@ void	calplot_tf_FA
 	   (char *title, int frmmax, float *frm, float *amp,
 	    int *nfrms, vp_lo_frame vp);
 void	calplot_tf_FBA
-	   (char *title, int frmmax, float *frm, float *bw, float *amp,
-	    int *nfrms, vp_lo_frame vp );
+	   (int frmmax, float *frm, float *bw, float *amp,int *nfrms,float *tf,int *ncount);
+
 void	calmultiplot_tf_FA
 	   (int entry, char *title, char *vowel_code,
 	    int frmmax, float *frm, float *amp, int *nfrms, vp_lo_frame vp);
