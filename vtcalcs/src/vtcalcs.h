@@ -33,8 +33,8 @@
 	int	nfrms, nfrmmax = 8;	/* number of formant frequencies  */
 	float	frm[8], bw[8], amp[8];	/* formant freqs. and amplitude   */
 	int ntf;
-	float tfmag[1024];
-	float tffreq[1024];
+	float tfmag[8192];
+	float tffreq[8192];
 
 	vp_lo_frame vp1 = { 1, 0.5, 5.0, 49., 25. }; 	/* area_function  */
 	vp_lo_frame vp2 = { 2, 0.5, 32., 49., 37. };    /* VT transfer	  */
